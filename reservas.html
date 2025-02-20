@@ -5,7 +5,6 @@
     <title>Ohara Training</title>
     <link rel="icon" type="image/jpg" href="images/ohara.jpg">
     <style>
-        
         body, html {
             height: 100%;
             width: 100%;
@@ -17,6 +16,7 @@
             background-color: #f4f4f4;
         }
         .iframe-container {
+            padding-top: 80px
             width: 100%;
             height: 100%;
             max-width: 100%;
@@ -28,10 +28,54 @@
             height: 100%;
             border: none;
         }
+        /* Navegación */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.nav-links a:link,
+.nav-links a:visited {
+    color: #3e3e3d;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #259bdb;
+}
+
+nav img.logo {
+    width: 50px;
+}
     </style>
 </head>
 <body>
-
+<nav>
+        <div class="nav-container">
+            <img src="images/ohara.jpg" alt="Ohara Logo" class="logo">
+            <div class="nav-links">
+                <a href="index.html" class="active">Inicio</a>
+                <a href="reservas.html">Reservar sesión</a>
+                <a href="horarios.html">Horarios</a>
+            </div>
+        </div>
+    </nav>
     <div class="iframe-container">
         <iframe allow="fullscreen" src="https://script.google.com/macros/s/AKfycbyozjeC8P51iqfVtdq0yk3tBX7-VUcKb5R7yGVmH-6E7GfAnIVA3FDTzWup0LlvbfI3SA/exec" 
                 title="Iframe Google Script"></iframe>
