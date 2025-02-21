@@ -128,16 +128,24 @@ nav img.logo {
     </style>
 </head>
 <body>
-<nav>
-        <div class="nav-container">
-            <img src="images/ohara.jpg" alt="Ohara Logo" class="logo">
-            <div class="nav-links">
-                <a href="index.html" class="active">Inicio</a>
-                <a href="reservas.html">Reservar sesión</a>
-                <a href="horarios.html">Horarios</a>
-            </div>
-        </div>
+     <header>
+    <div class="burger-menu" id="burgerMenu">
+      <div class="burger-icon" onclick="toggleMenu()">
+        <div class="burger-bar"></div>
+        <div class="burger-bar"></div>
+        <div class="burger-bar"></div>
+      </div>
+    </div>
+    <nav id="navMenu" class="nav">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
     </nav>
+  </header>
+
     <div class="iframe-container">
         <iframe allow="fullscreen" src="https://script.google.com/macros/s/AKfycbyozjeC8P51iqfVtdq0yk3tBX7-VUcKb5R7yGVmH-6E7GfAnIVA3FDTzWup0LlvbfI3SA/exec" 
                 title="Iframe Google Script"></iframe>
