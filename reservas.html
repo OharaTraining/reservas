@@ -125,13 +125,13 @@
                 title="Iframe Google Script"></iframe>
     </div>
 
-</body>
     <script>
         function toggleMenu() {
-  const nav = document.getElementById('navMenu');
-  const burgerIcon = document.querySelector('.burger-icon');
-  nav.classList.toggle('active');
-  burgerIcon.classList.toggle('active');
-}
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
     </script>
+</body>
 </html>
