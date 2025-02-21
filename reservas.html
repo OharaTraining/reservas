@@ -6,6 +6,7 @@
     <title>Ohara Training</title>
     <link rel="icon" type="image/jpg" href="images/ohara.jpg">
     <link rel="stylesheet" href="style.css">
+    
     <style>
         body, html {
             height: 100%;
@@ -21,7 +22,7 @@
         .iframe-container {
             flex: 1;
             width: 100%;
-            margin-top: 70px; /* Reduced for mobile */ 
+            margin-top: 70px; /* Reduced for mobile */
             position: relative;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
@@ -39,9 +40,44 @@
                 height: calc(100vh - 80px); /* Subtract nav height */
             }
         }
+
+        /* Loading spinner */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ddd;
+            border-top-color: #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Loader -->
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
     <nav>
         <div class="nav-container">
             <img src="images/ohara.jpg" alt="Ohara Logo" class="logo">
@@ -59,7 +95,8 @@
     </nav>
 
     <div class="iframe-container">
-        <iframe allow="fullscreen" src="https://script.google.com/macros/s/AKfycbx7P5tmmF87OxNFoN83DT3f5nY9Iqci5yT7PF7MMGhTVOLJQDG_xca1JxhRvdZQrZHT5g/exec" 
+        <iframe id="myIframe" allow="fullscreen" 
+                src="https://script.google.com/macros/s/AKfycbx7P5tmmF87OxNFoN83DT3f5nY9Iqci5yT7PF7MMGhTVOLJQDG_xca1JxhRvdZQrZHT5g/exec" 
                 title="Iframe Google Script"></iframe>
     </div>
 
@@ -70,6 +107,21 @@
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
         }
+
+        // Manejo del loader para el iframe
+        window.onload = function() {
+            const iframe = document.getElementById("myIframe");
+            const loadingOverlay = document.getElementById("loading");
+
+            // Mostrar el spinner mientras el iframe carga
+            loadingOverlay.style.display = "flex";
+
+            iframe.onload = function() {
+                // Ocultar el spinner cuando el iframe haya terminado de cargar
+                loadingOverlay.style.display = "none";
+            };
+        };
     </script>
+
 </body>
 </html>
