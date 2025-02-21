@@ -20,9 +20,10 @@
         .iframe-container {
             flex: 1;
             width: 100%;
-            margin-top: 80px; /* Space for fixed nav */
+            margin-top: 70px; /* Reduced for mobile */
             position: relative;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
         }
         iframe {
             width: 100%;
