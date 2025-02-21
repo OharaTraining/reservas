@@ -109,18 +109,23 @@
         }
 
         // Manejo del loader para el iframe
-        window.onload = function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const iframe = document.getElementById("myIframe");
             const loadingOverlay = document.getElementById("loading");
 
             // Mostrar el spinner mientras el iframe carga
             loadingOverlay.style.display = "flex";
 
-            iframe.onload = function() {
-                // Ocultar el spinner cuando el iframe haya terminado de cargar
+            // Intentar ocultar el loader cuando el iframe carga
+            iframe.onload = function () {
                 loadingOverlay.style.display = "none";
             };
-        };
+
+            // Ocultar el loader después de 5 segundos como respaldo
+            setTimeout(() => {
+                loadingOverlay.style.display = "none";
+            }, 5000);
+        });
     </script>
 
 </body>
